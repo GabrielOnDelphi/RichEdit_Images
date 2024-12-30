@@ -1,0 +1,7 @@
+I extracted this control from Jedi.
+
+2024.09
+ * JVCL349 
+ * JCL27-Build5676
+ 
+Watch for sections marked with "put it back"

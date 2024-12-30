@@ -67,3 +67,9 @@ __recovery/
 
 # Boss dependency manager vendor folder https://github.com/HashLoad/boss
 modules/
+*.otares
+/Demo/backup
+TRichEdit from delphi 11.3.pas
+/_out
+Demo/ ORIGINAL CODE HERE.lnk
+ original/JVCL349CompleteJCL27-Build5676.zip

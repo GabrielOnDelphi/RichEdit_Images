@@ -1,0 +1,259 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <Base>True</Base>
+        <AppType>Application</AppType>
+        <Config Condition="'$(Config)'==''">Debug</Config>
+        <FrameworkType>VCL</FrameworkType>
+        <MainSource>JediRtfEditorDemo.dpr</MainSource>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <ProjectGuid>{58C26A80-BF39-49CB-A074-A354DD484255}</ProjectGuid>
+        <ProjectVersion>19.5</ProjectVersion>
+        <TargetedPlatforms>1</TargetedPlatforms>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+        <Cfg_1>true</Cfg_1>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+        <Cfg_1_Win32>true</Cfg_1_Win32>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+        <Cfg_2>true</Cfg_2>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
+        <Cfg_2_Win32>true</Cfg_2_Win32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <SanitizedProjectName>JediRtfEditorDemo</SanitizedProjectName>
+        <DCC_DcuOutput>dcu</DCC_DcuOutput>
+        <DCC_ExeOutput>.\</DCC_ExeOutput>
+        <DCC_ImageBase>00400000</DCC_ImageBase>
+        <DCC_Namespace>Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;System;Xml;Data;Datasnap;Web;Soap;Winapi;$(DCC_Namespace)</DCC_Namespace>
+        <DCC_UnitSearchPath>..\;c:\Projects-3rd_Packages\RxLib\;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=;CFBundleName=</VerInfo_Keys>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <BT_BuildType>Debug</BT_BuildType>
+        <DCC_Namespace>System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+        <Icon_MainIcon>EditorDemo_Icon.ico</Icon_MainIcon>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
+        <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <DCC_DebugInformation>0</DCC_DebugInformation>
+        <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+        <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+        <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2)'!=''">
+        <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+        <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+        <DCC_IntegerOverflowCheck>true</DCC_IntegerOverflowCheck>
+        <DCC_Optimize>false</DCC_Optimize>
+        <DCC_RangeChecking>true</DCC_RangeChecking>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+    </PropertyGroup>
+    <ItemGroup>
+        <DelphiCompile Include="$(MainSource)">
+            <MainSource>MainSource</MainSource>
+        </DelphiCompile>
+        <RcCompile Include="EditorDemo.rc">
+            <Form>EditorDemo.res</Form>
+        </RcCompile>
+        <DCCReference Include="MainForm.pas">
+            <Form>EditorMainForm</Form>
+        </DCCReference>
+        <DCCReference Include="ParagraphFormatFormU.pas">
+            <Form>ParagraphFormatForm</Form>
+        </DCCReference>
+        <DCCReference Include="TabsFormU.pas">
+            <Form>TabsForm</Form>
+        </DCCReference>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Debug">
+            <Key>Cfg_2</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Delphi.Personality>
+                <Source>
+                    <Source Name="MainSource">JediRtfEditorDemo.dpr</Source>
+                </Source>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\DUnitXIDEExpert280.bpl">Embarcadero Unit Testing IDE Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\DataExplorerDBXPlugin280.bpl">DBExpress Data Explorer Integration</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\DataExplorerDBXPluginEnt280.bpl">DBExpress Enterprise Data Explorer Integration</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\DataExplorerDBXPluginInt280.bpl">DBExpress InterBase Data Explorer Integration</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\DataExplorerFireDACPlugin280.bpl">FireDAC Data Explorer Integration</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\applet280.bpl">Embarcadero Control Panel Applet Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclBindCompFireDAC280.bpl">LiveBinding Expression Components FireDac</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclCloudService280.bpl">Embarcadero Cloud management components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclDBXDriversEnt280.bpl">Embarcadero Enterprise Driver Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclDataSnapClient280.bpl">Embarcadero DBExpress DataSnap Client Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclDataSnapCommon280.bpl">Embarcadero DBExpress DataSnap Common Design package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclDataSnapConnectors280.bpl">Embarcadero DataSnap Connector Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclDataSnapFireDAC280.bpl">Embarcadero DataSnap FireDAC</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclDataSnapIndy10ServerTransport280.bpl">Embarcadero DBExpress DataSnap Server Transport Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclDataSnapNativeClient280.bpl">Embarcadero DBExpress DataSnap Native Client Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclDataSnapNativeServer280.bpl">Embarcadero DBExpress DataSnap Native Server Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclDataSnapProviderClient280.bpl">Embarcadero DBExpress DataSnap Provider Client Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclDataSnapServer280.bpl">Embarcadero DBExpress DataSnap Server Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclDataSnapWebBrokerServer280.bpl">Embarcadero DBExpress DataSnap Web Broker Server Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclFMXtee9280.bpl">TeeChart Lite FMX Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclFireDACEnt280.bpl">Embarcadero FireDAC C\S Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclFireDACEntExt280.bpl">Embarcadero FireDAC Ext C\S Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclVclFireDAC280.bpl">Embarcadero VCL FireDAC Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclado280.bpl">Embarcadero ADO DB Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclbindcompdbx280.bpl">LiveBindings Expression Components DbExpress</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclbindcompvcl280.bpl">Embarcadero LiveBindings Components VCL</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcldbx280.bpl">Embarcadero dbExpress Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcldbxcds280.bpl">Embarcadero SimpleDataset Component (DBX)</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcldsnapxml280.bpl">Embarcadero XML Transform Provider Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcledge280.bpl">Edge WebView2 Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclemsedge280.bpl">Embarcadero RAD Server Edge Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclib280.bpl">Embarcadero InterBase Express Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclie280.bpl">Internet Explorer Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclmcn280.bpl">Embarcadero DataSnap Connection Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclmid280.bpl">Embarcadero MyBase DataAccess Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclnetdb280.bpl">Embarcadero Internet DB Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k280.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp280.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclsoap280.bpl">Embarcadero SOAP Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclsoapmidas280.bpl">Embarcadero SOAP Midas Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclsoapserver280.bpl">Embarcadero SOAP Server Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcltee9280.bpl">TeeChart Standard VCL Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcltethering280.bpl">Embarcadero - Tethering Component Editors</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcltouch280.bpl">Embarcadero Touch Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclxml280.bpl">Embarcadero XML Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\fmxstyledesigner280.bpl">Embarcadero Style Designer Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\gitide280.bpl">Embarcadero Git Integration</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\hgide280.bpl">Embarcadero Mercurial Integration</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\ibmonitor280.bpl">Embarcadero InterBase Express Monitoring</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\svn280.bpl">Subversion integration</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\svnide280.bpl">Embarcadero Subversion Integration</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\svnui280.bpl">User interface code for subversion integration</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\BionixVCL280.bpl">BioniX VCL</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\DclRxCtl280.bpl">File C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\DclRxCtl280.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\RxCtl_Design280.bpl">File C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\RxCtl_Design280.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\sgcWebSocketsD11.bpl">SGC WebSockets</Excluded_Packages>
+                    <Excluded_Packages Name="c:\Delphi\FixInsight\FixInsight_11.bpl">FixInsight IDE Expert</Excluded_Packages>
+                </Excluded_Packages>
+            </Delphi.Personality>
+            <Deployment Version="4">
+                <DeployFile LocalName="JediRtfEditorDemo.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>JediRtfEditorDemo.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployClass Name="AdditionalDebugSymbols">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="DebugSymbols">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="DependencyFramework">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="DependencyModule">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.dll;.bpl</Extensions>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Required="true" Name="DependencyPackage">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.bpl</Extensions>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="File">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Required="true" Name="ProjectOutput">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectUWPManifest">
+                    <Platform Name="Win32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="UWP_DelphiLogo150">
+                    <Platform Name="Win32">
+                        <RemoteDir>Assets</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="UWP_DelphiLogo44">
+                    <Platform Name="Win32">
+                        <RemoteDir>Assets</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <ProjectRoot Platform="Win32" Name="$(PROJECTNAME)"/>
+            </Deployment>
+            <Platforms>
+                <Platform value="Android">False</Platform>
+                <Platform value="Android64">False</Platform>
+                <Platform value="Linux64">False</Platform>
+                <Platform value="OSX64">False</Platform>
+                <Platform value="OSXARM64">False</Platform>
+                <Platform value="Win32">True</Platform>
+                <Platform value="Win64">False</Platform>
+                <Platform value="iOSDevice64">False</Platform>
+                <Platform value="iOSSimARM64">False</Platform>
+            </Platforms>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+    <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
+    <Import Project="$(MSBuildProjectName).deployproj" Condition="Exists('$(MSBuildProjectName).deployproj')"/>
+</Project>
