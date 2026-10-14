@@ -1,8 +1,7 @@
 program MessengerDemo;
 
 uses
-  Forms,
-  MessengerMainFormU in 'MessengerMainFormU.pas' {Form1};
+  Forms,  MessengerMainFormU in 'MessengerMainFormU.pas' {Form1};
 
 {$R *.res}
 
